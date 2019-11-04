@@ -25,3 +25,4 @@ Se debe realizar la simulación del sistema de inventarios y ventas y, realizar 
 *Familia que más producto vendió en pesos
 *Tiempos utilizados para consumir x cliente
 
+https://github.com/duvanbotello/proyecto_hilos/blob/master/ImagenesProyecto/principal.PNG
