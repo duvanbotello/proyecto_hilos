@@ -5,7 +5,7 @@
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT v.id_caja, COUNT(*) AS total_ventas
-FROM ventas AS v 
+FROM ventas AS v
 GROUP BY v.id_caja
 ORDER BY total_ventas DESC LIMIT 1]]>
 	</queryString>
@@ -29,10 +29,6 @@ ORDER BY total_ventas DESC LIMIT 1]]>
 				<reportElement x="435" y="20" width="100" height="20" uuid="3c8bdcbe-791a-44bd-9ec2-905974f45363"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<image>
-				<reportElement x="25" y="3" width="50" height="50" uuid="6e8bc0ad-4111-46c2-b4be-fe9ce4319558"/>
-				<imageExpression><![CDATA["C:\\Users\\Duvan Botello\\Dropbox\\Programacion\\ANALISIS DE ALGORTIMOS\\proyecto_segundo_corte\\ProyectoSegundoHilos\\src\\images\\unipamplona.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="172" y="25" width="237" height="30" uuid="72483e75-7896-4c3e-8a7d-2a31d45a1aa9"/>
 				<textElement>

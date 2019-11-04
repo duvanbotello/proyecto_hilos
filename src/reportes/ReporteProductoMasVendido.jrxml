@@ -47,10 +47,6 @@ ORDER BY
 				</textElement>
 				<text><![CDATA["Productos Mas Consumidos"]]></text>
 			</staticText>
-			<image>
-				<reportElement x="10" y="10" width="50" height="50" uuid="e2df90d4-191e-4921-bbb5-94e85773e2e5"/>
-				<imageExpression><![CDATA["C:\\Users\\Duvan Botello\\Dropbox\\Programacion\\ANALISIS DE ALGORTIMOS\\proyecto_segundo_corte\\ProyectoSegundoHilos\\src\\images\\unipamplona.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>

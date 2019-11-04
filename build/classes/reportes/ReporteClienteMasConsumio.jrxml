@@ -31,10 +31,6 @@ order by CantidadCompra DESC]]>
 	</background>
 	<title>
 		<band height="60" splitType="Stretch">
-			<image>
-				<reportElement x="10" y="4" width="50" height="50" uuid="ffce2a71-dce3-469b-8e80-a4c1e2b612f2"/>
-				<imageExpression><![CDATA["C:\\Users\\Duvan Botello\\Dropbox\\Programacion\\ANALISIS DE ALGORTIMOS\\proyecto_segundo_corte\\ProyectoSegundoHilos\\src\\images\\unipamplona.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="197" y="4" width="140" height="37" uuid="4e51c87e-bbc1-4812-9caa-7aebd56aedb5"/>
 				<textElement textAlignment="Center">

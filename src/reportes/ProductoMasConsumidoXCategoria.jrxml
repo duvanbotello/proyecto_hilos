@@ -51,10 +51,6 @@ ORDER BY
 				</textElement>
 				<text><![CDATA["ProductoMasConsumidoXCategoria"]]></text>
 			</staticText>
-			<image>
-				<reportElement x="10" y="10" width="50" height="50" uuid="9b444b05-6478-4e4e-b7d4-36d4d7e1792e"/>
-				<imageExpression><![CDATA["C:\\Users\\Duvan Botello\\Dropbox\\Programacion\\ANALISIS DE ALGORTIMOS\\proyecto_segundo_corte\\ProyectoSegundoHilos\\src\\images\\unipamplona.png"]]></imageExpression>
-			</image>
 			<textField pattern="EEEEE dd MMMMM yyyy">
 				<reportElement x="420" y="27" width="100" height="20" uuid="f7e0548c-e781-4f79-8e51-0c20c5fa01b9"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
