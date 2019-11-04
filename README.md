@@ -11,3 +11,17 @@ Un almacén lleva su sistema de inventarios (productos) y ventas en una base de 
 alertas del stock mínimo para surtir.
 
 * Proceso que se encargue de consumir productos, se pueden consumir los productos hasta su stock mínimo + 10, de ahí no puede pasar.
+
+Existen N cliente que entran al almacén a consumir productos, estos clientes se manejan en una cola en orden de llegada. Por cada cliente tiene cedula, nombre. Existen 10 cajas que atienden los clientes donde la asignación a la caja la escoge el cliente en forma aleatoria.
+
+Se debe realizar la simulación del sistema de inventarios y ventas y, realizar los siguientes consultas:
+
+*Listado de clientes
+*Ventas x cajera
+*Caja que más clientes atendió
+*Productos más consumidos
+*Cliente que más consumió productos.
+*Producto más consumido x familia
+*Familia que más producto vendió en pesos
+*Tiempos utilizados para consumir x cliente
+
