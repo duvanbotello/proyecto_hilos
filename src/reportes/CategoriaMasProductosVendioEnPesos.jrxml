@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="df21ab70-4729-4f24-950f-d3899d22ee38">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     categoria_prod.`nombre_cate` AS NOMBRE_CATEGORIA,
+     productos.`id_categoria` AS ID_CATEGORIA,
+     sum(detalles_venta.`total`) AS SIUMA_TOTAL_COMPRA
+FROM
+     `productos` productos RIGHT OUTER JOIN `detalles_venta` detalles_venta ON productos.`id_producto` = detalles_venta.`id_producto`
+     INNER JOIN `categoria_prod` categoria_prod ON productos.`id_categoria` = categoria_prod.`id_categoria`
+GROUP BY
+     ID_CATEGORIA
+ORDER BY
+     sum(detalles_venta.`total`) DESC]]>
+	</queryString>
+	<field name="NOMBRE_CATEGORIA" class="java.lang.String"/>
+	<field name="ID_CATEGORIA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SIUMA_TOTAL_COMPRA" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="209" y="10" width="140" height="37" uuid="0fba9653-12d1-4b00-a498-beff8b25e9b5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB Demi" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="35" width="353" height="30" uuid="1e014b90-fa7c-40be-9e90-9efaa59f7ca0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA["Categoria Que Mas Productos Vendio en Pesos"]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="4" width="100" height="20" uuid="66d80c24-00c5-4375-8434-d41a3ce8b113"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="2" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="228" y="2" width="121" height="20" uuid="dc8ea7dd-5567-4556-a4cd-49502336a42f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB Demi" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="2" width="100" height="20" uuid="a6fa8525-bd92-40ee-a578-b29a22cf7d27"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB Demi" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="2" width="100" height="20" uuid="3db4b638-0f1a-4daf-a97c-258d53734cbf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB Demi" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Saldo Total Vendido]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="237" y="4" width="100" height="20" uuid="d0f5714c-bc92-471f-ab27-7457f41727df"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE_CATEGORIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="4" width="100" height="20" uuid="dce58ad8-6134-4a65-96e2-730b9d1e30d3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ID_CATEGORIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="4" width="100" height="20" uuid="46f9ad70-0185-43b3-9bb6-97b47b471de3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{SIUMA_TOTAL_COMPRA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="9" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

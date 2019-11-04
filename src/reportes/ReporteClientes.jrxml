@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteClientes" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0cd7d9e6-c43b-421a-9218-5ebbef917821">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     clientes.`id_clientes` AS clientes_id_clientes,
+     clientes.`doc_cliente` AS clientes_doc_cliente,
+     clientes.`nombre` AS clientes_nombre,
+     clientes.`apellido` AS clientes_apellido,
+     clientes.`telefono` AS clientes_telefono,
+     clientes.`edad` AS clientes_edad
+FROM
+     `clientes` clientes]]>
+	</queryString>
+	<field name="clientes_id_clientes" class="java.lang.Integer"/>
+	<field name="clientes_doc_cliente" class="java.lang.Integer"/>
+	<field name="clientes_nombre" class="java.lang.String"/>
+	<field name="clientes_apellido" class="java.lang.String"/>
+	<field name="clientes_telefono" class="java.lang.Integer"/>
+	<field name="clientes_edad" class="java.lang.Integer"/>
+	<title>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="145" y="8" width="308" height="37" uuid="1991f1dd-e332-49a6-afe6-733f7ea1c16a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB Demi" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte Clientes]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="460" y="17" width="100" height="20" uuid="2910bf77-81b8-4511-ab28-b62ad5ddb4b8"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="50" y="0" width="50" height="50" uuid="7b300878-e4f9-42ff-9d3e-6504a1f4c7e1"/>
+				<imageExpression><![CDATA["C:\\Users\\Duvan Botello\\Dropbox\\Programacion\\ANALISIS DE ALGORTIMOS\\proyecto_segundo_corte\\ProyectoSegundoHilos\\src\\images\\unipamplona.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="42" y="0" width="58" height="20" uuid="2122dae5-2baa-4156-ab82-d0c587ad7899"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="0" width="80" height="20" uuid="f3c4b421-fa5c-41f5-af73-4d725a462bda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="0" width="64" height="20" uuid="4a4ebab4-e256-4f36-93ed-fa126d0b215c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="0" width="65" height="20" uuid="4f0fce20-fbeb-4e50-a184-09f2dd054e48"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[APELLIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="0" width="69" height="20" uuid="45239455-fe18-4392-802a-44b1b721fa2d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="0" width="40" height="20" uuid="d41411b4-a73f-42e8-a10d-ba741fee8c98"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[EDAD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="42" y="6" width="58" height="20" uuid="6a22582d-d8ba-4d58-8470-5c90a3aab298"/>
+				<textFieldExpression><![CDATA[$F{clientes_id_clientes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="6" width="80" height="20" uuid="676c50eb-73f9-44a0-8d05-e008d5aeec04"/>
+				<textFieldExpression><![CDATA[$F{clientes_doc_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="6" width="64" height="20" uuid="de2118a0-874e-42fe-b7f4-dea6046e6a47"/>
+				<textFieldExpression><![CDATA[$F{clientes_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="6" width="65" height="20" uuid="8b38f1e4-095a-4df9-bfbe-1116f90e47b8"/>
+				<textFieldExpression><![CDATA[$F{clientes_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="6" width="69" height="20" uuid="34ba2c6e-b226-41b7-9a1c-1cc7d5686362"/>
+				<textFieldExpression><![CDATA[$F{clientes_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="6" width="40" height="20" uuid="1ebacb88-3fc6-444e-b45c-154232efa7ed"/>
+				<textFieldExpression><![CDATA[$F{clientes_edad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="391" y="4" width="100" height="20" uuid="a6db31c4-db24-4714-b9c8-45ac9ea75f00"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

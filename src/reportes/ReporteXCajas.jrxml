@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ce15cb5f-ce7f-40dd-a6a7-2cfd0e4b679f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_caja2" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventas.`id_venta` AS ventas_id_venta,
+     ventas.`doc_cliente` AS ventas_doc_cliente,
+     ventas.`doc_empleado` AS ventas_doc_empleado,
+     ventas.`id_caja` AS ventas_id_caja,
+     ventas.`saldo_total` AS ventas_saldo_total,
+     ventas.`fecha_venta` AS ventas_fecha_venta
+FROM
+     `ventas` ventas
+WHERE ventas.id_caja = $P{id_caja2}]]>
+	</queryString>
+	<field name="ventas_id_venta" class="java.lang.Integer"/>
+	<field name="ventas_doc_cliente" class="java.lang.Integer"/>
+	<field name="ventas_doc_empleado" class="java.lang.Integer"/>
+	<field name="ventas_id_caja" class="java.lang.Integer"/>
+	<field name="ventas_saldo_total" class="java.lang.Double"/>
+	<field name="ventas_fecha_venta" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="54" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="420" y="20" width="100" height="20" uuid="5fe06904-7894-47f2-bf3b-c0a345d58061"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="105" y="11" width="308" height="37" uuid="68a6e3a9-7299-482a-9477-e201dbc37286"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB Demi" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte X Cajas]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="3" width="50" height="50" uuid="e1e30684-336e-4833-99f8-7b27368aa08b"/>
+				<imageExpression><![CDATA["C:\\Users\\Duvan Botello\\Dropbox\\Programacion\\ANALISIS DE ALGORTIMOS\\proyecto_segundo_corte\\ProyectoSegundoHilos\\src\\images\\unipamplona.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="50" height="20" uuid="d0099202-41f9-4ed2-a2a8-554bf8d80875"/>
+				<textElement textAlignment="Center">
+					<font fontName="Copperplate Gothic Bold"/>
+				</textElement>
+				<text><![CDATA[ID VENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="74" height="20" uuid="96985701-ec6c-4460-82cc-9da1f9fc3df7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Copperplate Gothic Bold"/>
+				</textElement>
+				<text><![CDATA[CLIENTE DOC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="0" width="85" height="20" uuid="76142c61-821c-499e-ac0e-45b4fb097062"/>
+				<textElement textAlignment="Center">
+					<font fontName="Copperplate Gothic Bold"/>
+				</textElement>
+				<text><![CDATA[DOC EMPLEADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="0" width="46" height="20" uuid="ba90af63-e4a0-4162-b0aa-daebcf852bb0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Copperplate Gothic Bold"/>
+				</textElement>
+				<text><![CDATA[ID CAJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="2" width="77" height="20" uuid="bd5e9be8-539e-4c5c-a067-c122c1cc33fa"/>
+				<textElement textAlignment="Center">
+					<font fontName="Copperplate Gothic Bold"/>
+				</textElement>
+				<text><![CDATA[SALDO TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="478" y="2" width="77" height="20" uuid="efac527b-73b1-43ca-b178-5fb8900c0e65"/>
+				<textElement textAlignment="Center">
+					<font fontName="Copperplate Gothic Bold"/>
+				</textElement>
+				<text><![CDATA[FECHA COM]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="3" width="50" height="20" uuid="e75e7ee2-c1c6-46df-b8e2-b8b57acdc13f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ventas_id_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="3" width="74" height="20" uuid="5c64080e-15fd-4d5f-be9e-d5553bf40278"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ventas_doc_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="3" width="85" height="20" uuid="e6f4b3c1-966b-43a1-85c8-72edf2901ca7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ventas_doc_empleado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="3" width="46" height="20" uuid="85647a56-ad3d-490e-afbc-8126a559b2c3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ventas_id_caja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="3" width="77" height="20" uuid="8a06ec0f-94f0-4250-a79d-2ef5df777997"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ventas_saldo_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="3" width="77" height="20" uuid="ca369f3c-c0b6-4a90-aa96-0b8daf54ea8d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ventas_fecha_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="448" y="0" width="100" height="20" uuid="9d57d1da-38d3-41b2-8dfa-de8927c84837"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

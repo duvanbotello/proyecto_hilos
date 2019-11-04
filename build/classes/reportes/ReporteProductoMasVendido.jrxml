@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c8bce87e-b7f4-43ef-a1f2-39dad496186c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     sum(cant) AS cant,
+     d.`id_producto`,
+     d.`descripcion`
+FROM
+     `detalles_venta` d
+GROUP BY
+     d.id_producto
+ORDER BY
+     cant DESC]]>
+	</queryString>
+	<field name="cant" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_producto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="420" y="27" width="100" height="20" uuid="2e6e4ca7-d9e7-4008-bf61-35c6be612ecd"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="197" y="10" width="140" height="37" uuid="8e9fe6aa-3577-480e-9547-70da7339751e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB Demi" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="32" width="237" height="30" uuid="69c832d5-2597-4750-9c53-94a0c298ddfc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA["Productos Mas Consumidos"]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="50" height="50" uuid="e2df90d4-191e-4921-bbb5-94e85773e2e5"/>
+				<imageExpression><![CDATA["C:\\Users\\Duvan Botello\\Dropbox\\Programacion\\ANALISIS DE ALGORTIMOS\\proyecto_segundo_corte\\ProyectoSegundoHilos\\src\\images\\unipamplona.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="10" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="2" width="97" height="20" uuid="75edc337-bfee-4ee9-95f1-ec0e9bebdfc2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="2" width="100" height="20" uuid="b589a285-551e-4f72-bff8-93b25b42aa64"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="2" width="100" height="20" uuid="7b739862-e92c-487a-bc21-fba1f600cbeb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="3" width="97" height="20" uuid="651a8f80-b79e-4197-a4c6-366ace9905c2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="3" width="100" height="20" uuid="4addf943-7871-454f-b72d-953fc2a16449"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="2" width="100" height="20" uuid="ce22aead-36c1-44fe-9bd3-d32f88371200"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cant}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="10" splitType="Stretch"/>
+	</summary>
+</jasperReport>

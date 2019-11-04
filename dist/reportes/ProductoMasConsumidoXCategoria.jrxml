@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="220" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2cfaad46-cb70-4736-960f-066e69c95a78">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_categoria" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     productos.`id_producto` AS id_producto,
+     productos.`nombre` AS Nombre_Producto,
+     productos.`id_categoria` AS id_categoria,
+     categoria_prod.`nombre_cate` AS Nombre_Categoria,
+     sum(detalles_venta.`cant`) AS Total_vendidos
+FROM
+     `productos` productos RIGHT OUTER JOIN `detalles_venta` detalles_venta ON productos.`id_producto` = detalles_venta.`id_producto`
+     LEFT OUTER JOIN `categoria_prod` categoria_prod ON productos.`id_categoria` = categoria_prod.`id_categoria`
+GROUP BY
+     id_producto
+HAVING
+     productos.`id_categoria` = $P{id_categoria}
+ORDER BY
+     sum(detalles_venta.`cant`) DESC limit 1]]>
+	</queryString>
+	<field name="id_producto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre_Producto" class="java.lang.String"/>
+	<field name="id_categoria" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nombre_Categoria" class="java.lang.String"/>
+	<field name="Total_vendidos" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="197" y="10" width="140" height="37" uuid="751a1f3f-0d15-4a75-a7d0-195e17d02528"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB Demi" size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="35" width="283" height="30" uuid="77d20d1e-9222-4b17-9b37-5014069d4f54"/>
+				<textElement textAlignment="Center">
+					<font fontName="Berlin Sans FB" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA["ProductoMasConsumidoXCategoria"]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="50" height="50" uuid="9b444b05-6478-4e4e-b7d4-36d4d7e1792e"/>
+				<imageExpression><![CDATA["C:\\Users\\Duvan Botello\\Dropbox\\Programacion\\ANALISIS DE ALGORTIMOS\\proyecto_segundo_corte\\ProyectoSegundoHilos\\src\\images\\unipamplona.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="420" y="27" width="100" height="20" uuid="f7e0548c-e781-4f79-8e51-0c20c5fa01b9"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="8" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="2" width="77" height="20" uuid="ac21c9de-41a3-4e89-989b-3f384c000aaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB Demi" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="100" height="20" uuid="9bb01883-b600-4efa-9256-a39efc984669"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB Demi" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="2" width="100" height="20" uuid="b677eb5e-6931-4cbc-82f4-9c4470ba7216"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB Demi" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID_CATEGORIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="2" width="100" height="20" uuid="736a4ec3-b8f5-48c5-962a-23a23340e96e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB Demi" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CATEGORIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="2" width="100" height="20" uuid="90cca816-5216-4fa3-b63f-29f8f43f8e5c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB Demi" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL VENDIDOS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="8" width="74" height="20" uuid="edaa0e41-d37b-4b10-9799-f0814168e0c7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="7" width="100" height="20" uuid="48a8b099-9285-4192-9065-7813309f2fb7"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre_Producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="7" width="100" height="20" uuid="4941f6e8-e7b1-431f-aab8-6477d2f4bf17"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="6" width="100" height="20" uuid="502b73f3-2097-45d2-a14b-22681f711637"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre_Categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="447" y="7" width="100" height="20" uuid="310a57f5-9e30-43d4-b25d-0fba53a2a0c8"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Total_vendidos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="12" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>
